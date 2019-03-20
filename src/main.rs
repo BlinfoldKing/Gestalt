@@ -1,3 +1,9 @@
+mod gestalt;
+
+use gestalt::Gestalt;
+
 fn main() {
-    println!("Hello, world!");
+    let gestalt = Gestalt::new();
+    gestalt.emulate();
 }
+
