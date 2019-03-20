@@ -7,3 +7,4 @@ impl PPU {
         PPU {}
     }
 }
+
