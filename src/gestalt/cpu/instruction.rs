@@ -16,7 +16,7 @@ pub enum Instruction {
 
     // stack operation
     TSX,
-    TXY,
+    TXS,
     PHA,
     PHP,
     PLA,
