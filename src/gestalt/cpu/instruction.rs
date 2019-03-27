@@ -1,3 +1,4 @@
+#[derive(Copy, Clone)]
 pub enum Instruction {
     // load and store operation
     LDA,

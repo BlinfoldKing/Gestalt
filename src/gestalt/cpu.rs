@@ -1,17 +1,21 @@
 mod instruction;
+mod address_mode;
 
 use instruction::Instruction;
+use address_mode::AddressMode;
 
 pub struct CPU {
     cycle: u8,
-    register: Register
+    register: Register,
+    opcodes: [Option<(Instruction, AddressMode)>; 256]
 }
 
 impl CPU {
     pub fn new() -> CPU {
         CPU {
             cycle: 0,
-            register: Register::new()
+            register: Register::new(),
+            opcodes: generateDecoder()
         }
     }
 }
@@ -36,5 +40,13 @@ impl Register {
             status: 0
         }
     }
+}
+
+
+fn generateDecoder() -> [Option<(Instruction, AddressMode)>; 256] {
+    let mut decoder: [Option<(Instruction, AddressMode)>; 256] =  [None; 256];
+    decoder[0x01] = Some((Instruction::BRK, AddressMode::Immediate));
+
+    decoder
 }
 
